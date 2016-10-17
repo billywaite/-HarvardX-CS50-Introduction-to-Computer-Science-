@@ -1,0 +1,11 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+Questions:
+1. The framework allows any dimensions (d) between 3 and 9 inclusive.
+2. The game's board is represented with a two-dimensional array.
+3. The functional that is called to greet the player at the beginning of the game is greet().
+4. The functions I need to implement are init(), draw(), move(), and won().
+

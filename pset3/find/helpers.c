@@ -19,11 +19,10 @@ bool search(int value, int values[], int n)
 
     int left = 0;
     int right = n - 1;
+    int middle = (left + right) / 2;
     
     // binary search algorithm
    while (left <= right) {
-        //look at the middle of the list
-       int middle = left + right / 2;
        //if you find the needle, return true
        if (values[middle] == value) {
            return true;
@@ -31,7 +30,10 @@ bool search(int value, int values[], int n)
            right = middle - 1; //adjust the right value to just below middle
        } else {
            left = middle + 1; //adjust the left value to just above middle
-       } 
+       }
+       //reset the length of the array
+       n = right - left + 1;
+       return true;
    }
         return false;
 }
@@ -42,12 +44,12 @@ bool search(int value, int values[], int n)
 void sort(int values[], int n)
 {
     // sort using bubble algorithm
-    for (int i = 0; i < n; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            if (values[i] < values[j]) {
-                int temp = values[i];
-                values[i] = values[j];
-                values[j] = temp;
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= n - i - 1; j++) {
+            if (values[j] < values[j + 1]) {
+                int temp = values[j];
+                values[j] = values [j + 1];
+                values [j + 1] = temp;
             }
         }
     }
