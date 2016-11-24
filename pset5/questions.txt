@@ -1,11 +1,18 @@
-0.  TODO
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
+0.  pneumonoultramicroscopicsilicovolcanoconiosis is a lung disease also known as silicosis and it is the longest word in the english language dictionary.
+1.  getrusage returns resource usage measures for who, which can be RUSAGE_SELF, RUSAGE_CHILDREN, or RUSAGE_THREAD. An example of resource usage could be the total amount of time spent executing in user mode.
+2.  16 members in the struct rusage
+3.  We pass before and after by reference to calculate because we are passing the value of the pointer to the method, and then dereferencing, or getting the value that the pointer is referencing to.
+4.  The function main in speller reads the file text, character by character, and assembles a word. It then takes that word and executes the check function to check the spelling (which I declared in dictionary.c). And then it outputs results. Steps for the function are below:
+    a.  The first few steps set up the function's variables. On line 41 we choose the dictionary to use based on the number of arguments. This is done using interpolation, which could be subsituted for an if statement which states, if there are 3 arguments the dictionary is the second, otherwhise the dictionary is DICTIONARY.
+    b.  Next we load the dictionary, check for errors in loading, and then open the text. You determine the text based on the number of arguments as well.
+    c.  The first part of the for loop creates words. This starts on line 76 with the for loop. The outermost part of the for loop declares an integer c equal to a charcter in the text file. While the character is not the end of the file character, we traverse each character in the file.
+    d.  The first if on line 79 statement in the loop forces only alphabetical characters and apostrophes using isAlpha and \'. If the character is alphanumeric then we append that character to the char word of length LENGTH + 1. The index then increments.
+    e.  The second if statement on line 86 makes sure that the word being created can continue to append characters until the index > LENGTH, then the index will restart to 0 and a new word will be started.
+    f.  On line 97 is the continuation of the loop, it restarts the index to 0 if the program comes across a number.
+    g.  Line 107 is the last part of the loop that assembles words and makes the call to spellcheck. It should terminate the current word, increment the words counter, call the function check which takes the argument word, and then outputs the misspelled word if misspelled. The rest of the function outputs the results and unloads the dictionary to end the function. 
+5.  In fgetc we read each word character by character which enables us to keep track of the length of a word. If we use fscanf we might return a word that is longer than we anticipated which could overwrite other data that we care about.
+6.  We declared the parameters for check and load as const because we are creating local copies and indicating that we aren't going to change those parameters. So throw an error if we accidently do change them.  
+7.  I used a Trie data structure to implement the spell checker. A trie is what made the most sense to me. The structure starts with a root node, which allocates space for each letter in the alphabet plus an apostrophe. Each letter in the root node allocates it's on node (if there is a word in the dictionary that starts with that letter). So if the word is apple, the first letter is a, and a will then be allocated the same amount of space as root. And then is cascades down the word, p is then allocated space. 
+8.  My code didn't work the first time. I knew I wanted to get a trie structure working so I went after that from the get go and no other solutions worked for me.
+9.  I basically limped across the finish line. I was able to get the dictionary load, size, and unload working with relative ease but the spell check took a lot of effort and I wasn't able to refactor.
+10. I think my code is about as fast as it could be. The trie structure makes the most sense for speed.

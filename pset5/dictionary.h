@@ -12,6 +12,13 @@
 
 #include <stdbool.h>
 
+typedef struct node
+{
+    bool word;
+    struct node* nodes[27];
+}
+node;
+
 // maximum length for a word
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
